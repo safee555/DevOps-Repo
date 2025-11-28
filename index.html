@@ -3,17 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CloudNova IT Solutions</title>
+  <title>CloudNexis – Cloud, DevOps & Azure Experts</title>
 
   <style>
     :root {
       --primary: #2563eb;
       --primary-dark: #1d4ed8;
-      --bg: #0f172a;
-      --bg-light: #0b1220;
+      --bg: #020617;
       --text: #e5e7eb;
       --muted: #9ca3af;
-      --card-bg: #020617;
       --accent: #22c55e;
     }
 
@@ -26,7 +24,7 @@
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         sans-serif;
-      background: radial-gradient(circle at top, #1d283a 0, #020617 55%);
+      background: radial-gradient(circle at top, #1e293b 0, #020617 55%);
       color: var(--text);
       line-height: 1.5;
     }
@@ -40,8 +38,6 @@
       color: inherit;
       text-decoration: none;
     }
-
-    /* Layout helpers */
 
     .container {
       max-width: 1200px;
@@ -61,7 +57,7 @@
     .section-subtitle {
       color: var(--muted);
       margin-bottom: 2.5rem;
-      max-width: 600px;
+      max-width: 650px;
     }
 
     /* Navbar */
@@ -72,12 +68,12 @@
       z-index: 50;
       background: linear-gradient(
         to bottom,
-        rgba(15, 23, 42, 0.9),
+        rgba(15, 23, 42, 0.95),
         rgba(15, 23, 42, 0.75),
         transparent
       );
       backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
     }
 
     .nav {
@@ -90,19 +86,23 @@
     .nav-brand {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.6rem;
       font-weight: 700;
       letter-spacing: 0.04em;
     }
 
-    .nav-logo {
+    .nav-logo-img {
       width: 32px;
       height: 32px;
       border-radius: 999px;
-      background: radial-gradient(circle at 30% 10%, #38bdf8, #4f46e5);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      object-fit: cover;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+    }
+
+    .nav-brand span {
+      font-weight: 400;
+      color: var(--muted);
+      margin-left: 0.25rem;
       font-size: 0.9rem;
     }
 
@@ -141,12 +141,12 @@
     .nav-cta {
       padding: 0.5rem 1rem;
       border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
+      border: 1px solid rgba(148, 163, 184, 0.6);
       font-size: 0.9rem;
     }
 
     .nav-cta:hover {
-      background: rgba(15, 23, 42, 0.7);
+      background: rgba(15, 23, 42, 0.75);
     }
 
     .nav-toggle {
@@ -154,9 +154,10 @@
       cursor: pointer;
       border: 1px solid rgba(148, 163, 184, 0.6);
       border-radius: 999px;
-      padding: 0.4rem 0.6rem;
-      font-size: 0.95rem;
-      background: rgba(15, 23, 42, 0.7);
+      padding: 0.35rem 0.7rem;
+      font-size: 0.9rem;
+      background: rgba(15, 23, 42, 0.85);
+      color: var(--text);
     }
 
     /* Hero */
@@ -192,11 +193,11 @@
       height: 7px;
       border-radius: 999px;
       background: var(--accent);
-      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.35);
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.3);
     }
 
     .hero-title {
-      font-size: clamp(2.4rem, 4vw, 3.2rem);
+      font-size: clamp(2.4rem, 4vw, 3.3rem);
       line-height: 1.1;
       margin-bottom: 1rem;
     }
@@ -210,7 +211,7 @@
     .hero-text {
       color: var(--muted);
       margin-bottom: 1.6rem;
-      max-width: 470px;
+      max-width: 500px;
     }
 
     .hero-actions {
@@ -288,7 +289,7 @@
     .logo-row img {
       width: 90px;
       filter: grayscale(1);
-      opacity: 0.8;
+      opacity: 0.85;
     }
 
     /* Services */
@@ -328,8 +329,6 @@
       margin-bottom: 0.3rem;
     }
 
-    /* Two-column sections */
-
     .split {
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
@@ -340,7 +339,7 @@
     .badge {
       font-size: 0.8rem;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       color: var(--accent);
       margin-bottom: 0.6rem;
     }
@@ -591,7 +590,7 @@
       color: var(--text);
     }
 
-    /* Responsive styles */
+    /* Responsive */
 
     @media (max-width: 900px) {
       .hero-grid,
@@ -606,7 +605,7 @@
         position: absolute;
         top: 56px;
         right: 1rem;
-        background: rgba(15, 23, 42, 0.95);
+        background: rgba(15, 23, 42, 0.96);
         border-radius: 0.9rem;
         padding: 0.8rem 1rem;
         flex-direction: column;
@@ -656,8 +655,9 @@
   <header>
     <div class="container nav">
       <div class="nav-brand">
-        <div class="nav-logo">CN</div>
-        <div>CloudNova<span style="color:#9ca3af; font-weight:400;"> IT</span></div>
+        <!-- If you don't have a logo yet, you can remove this img tag -->
+        <img src="assets/cloudnexis.png" alt="CloudNexis logo" class="nav-logo-img" />
+        <div>CloudNexis<span> Cloud & DevOps</span></div>
       </div>
 
       <nav class="nav-links" id="nav-links">
@@ -679,68 +679,69 @@
         <div>
           <div class="hero-pill">
             <span></span>
-            <div>Trusted IT partner for modern businesses</div>
+            <div>Azure · DevOps · CloudNexis Platform Engineering</div>
           </div>
 
           <h1 class="hero-title">
-            Cloud-native <span>IT solutions</span> for the next decade.
+            Cloud-native <span>platforms & DevOps</span> for modern teams.
           </h1>
 
           <p class="hero-text">
-            We design, build, and manage secure cloud platforms, automation
-            pipelines, and high-availability applications so your business never slows down.
+            CloudNexis helps you design, secure, and automate your Azure and
+            multi-cloud environments with production-ready CI/CD, monitoring,
+            and SRE practices.
           </p>
 
           <div class="hero-actions">
-            <button class="btn-primary">Schedule a free consultation</button>
-            <button class="btn-outline">Download capability deck</button>
+            <button class="btn-primary">Book a free 30-min consultation</button>
+            <button class="btn-outline">Download CloudNexis capabilities PDF</button>
           </div>
 
           <div class="hero-meta">
             <div>
-              <strong>60+ cloud migrations</strong>
-              Completed across Azure, AWS and GCP.
+              <strong>Azure-first approach</strong>
+              Landing zones, governance, security & monitoring designed for real-world workloads.
             </div>
             <div>
-              <strong>99.98% uptime</strong>
-              SRE-driven reliability and observability.
+              <strong>From VM admin → DevOps</strong>
+              We meet you where you are and guide your journey into automation & platform engineering.
             </div>
           </div>
         </div>
 
         <aside class="hero-card">
           <img
-            src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=900&q=80"
-            alt="Team working in modern IT office"
+            src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=900&q=80"
+            alt="CloudNexis team collaborating in office"
           />
           <div class="hero-card-caption">
-            CloudNova teams collaborate across security, DevOps, and engineering
-            to ship reliable, production-ready platforms for global clients.
+            CloudNexis brings together cloud architects, Azure admins, and DevOps
+            engineers to build secure, observable, and automated platforms.
           </div>
         </aside>
       </div>
     </section>
 
-    <!-- LOGO ROW -->
+    <!-- LOGO ROW / TRUST -->
     <section>
       <div class="container">
         <div class="logo-row">
-          <span>Trusted by teams across fintech, healthcare & retail:</span>
+          <span>CloudNexis helps teams in banking, fintech, and SaaS modernize their cloud:</span>
           <img
             src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=300&q=60"
-            alt="Client logo 1"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=300&q=60"
-            alt="Client logo 2"
+            alt="Client 1"
           />
           <img
             src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=300&q=60"
-            alt="Client logo 3"
+            alt="Client 2"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=300&q=60"
+            alt="Client 3"
           />
           <img
             src="https://images.unsplash.com/photo-1573496782432-718ffbf87c87?auto=format&fit=crop&w=300&q=60"
-            alt="Client logo 4"
+            alt="Client 4"
           />
         </div>
       </div>
@@ -749,76 +750,74 @@
     <!-- SERVICES -->
     <section id="services">
       <div class="container">
-        <h2 class="section-title">Services tailored to your cloud journey</h2>
+        <h2 class="section-title">CloudNexis services</h2>
         <p class="section-subtitle">
-          Whether you're just starting in the cloud or modernizing a
-          mission-critical application, CloudNova delivers the engineering, automation,
-          and observability you need.
+          From first Azure subscription to fully automated CI/CD and observability,
+          CloudNexis gives you a clear, step-by-step path with simple explanations and strong execution.
         </p>
 
         <div class="services-grid">
           <article class="card">
-            <h3>Cloud Architecture & Migration</h3>
+            <h3>Azure & Cloud Foundations</h3>
             <p>
-              Design secure, scalable landing zones and migrate monoliths, databases,
-              and workloads with minimal downtime.
+              Design secure Azure landing zones with networking, identity, governance and backup aligned to best practices.
             </p>
             <ul>
-              <li>Azure & AWS landing zones</li>
-              <li>Database and app migration</li>
-              <li>Cost optimization strategy</li>
+              <li>Azure subscriptions & RBAC design</li>
+              <li>Private endpoints, VNets & firewalls</li>
+              <li>Backup, DR and cost optimization</li>
             </ul>
           </article>
 
           <article class="card">
-            <h3>DevOps & CI/CD Automation</h3>
+            <h3>CI/CD & DevOps Automation</h3>
             <p>
-              Ship faster with fully automated pipelines, GitOps workflows, and robust
-              release strategies.
+              Turn manual deployments into repeatable pipelines using GitHub Actions or Azure DevOps, with environments for dev, QA and prod.
             </p>
             <ul>
-              <li>GitHub Actions & Azure DevOps</li>
-              <li>Container build and release</li>
-              <li>Blue/green & canary deployments</li>
+              <li>GitHub Actions & Azure DevOps pipelines</li>
+              <li>Blue/green & canary releases</li>
+              <li>Infrastructure as Code with Bicep/Terraform</li>
             </ul>
           </article>
 
           <article class="card">
-            <h3>Reliability & Observability</h3>
+            <h3>Monitoring, SRE & Security</h3>
             <p>
-              Keep uptime high with proactive monitoring, SLOs, and intelligent alerting across your stack.
+              Implement dashboards, alerts, and security baselines so you can sleep while your platform stays healthy.
             </p>
             <ul>
-              <li>Grafana, Prometheus, Azure Monitor</li>
-              <li>24/7 production monitoring</li>
-              <li>Incident response runbooks</li>
+              <li>Azure Monitor, Grafana & Prometheus</li>
+              <li>Log Analytics & centralized logging</li>
+              <li>Security Center & vulnerability follow-up</li>
             </ul>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ABOUT / SPLIT -->
+    <!-- ABOUT / CLOUDNEXIS STORY -->
     <section id="about">
       <div class="container split">
         <div>
-          <div class="badge">About CloudNova</div>
-          <h2 class="section-title">Engineering-first, partner-focused.</h2>
+          <div class="badge">About CloudNexis</div>
+          <h2 class="section-title">From admin work to engineered platforms.</h2>
           <p class="text-muted">
-            We are a distributed team of cloud architects, DevOps engineers, and SREs
-            who care deeply about automation, reliability, and simple solutions to complex problems.
+            CloudNexis started with the idea that cloud and DevOps should be
+            explained like a friend explains things — simple language, real examples,
+            and no ego. Then we combine that with strong engineering, automation and documentation.
           </p>
           <ul class="list-check">
-            <li>Based in India, supporting clients across 6 time zones.</li>
-            <li>Security-first approach with least privilege access and compliance in mind.</li>
-            <li>Opinionated best practices refined from dozens of successful projects.</li>
+            <li>Hands-on experience with Azure VMs, storage, networking and security.</li>
+            <li>Focus on teaching your team, not hiding complexity behind buzzwords.</li>
+            <li>Step-by-step runbooks so you always know “what happens next”.</li>
           </ul>
         </div>
 
         <div class="image-frame">
           <img
-            src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=900&q=80"
-            alt="Developers collaborating at whiteboard"
+            src="https://images.unsplash.com/photo-1526498460520-4c246339dccb?auto=format&fit=crop&w=900&q=80"
+            alt="Cloud infrastructure concept"
           />
         </div>
       </div>
@@ -828,20 +827,20 @@
     <section>
       <div class="container stats-grid">
         <div class="stat">
-          <strong>40+</strong>
-          <span>Enterprise clients served</span>
+          <strong>25+</strong>
+          <span>Cloud projects delivered</span>
         </div>
         <div class="stat">
-          <strong>120+</strong>
-          <span>Production workloads managed</span>
+          <strong>99.9%</strong>
+          <span>Target uptime for managed workloads</span>
         </div>
         <div class="stat">
-          <strong>4.9★</strong>
-          <span>Average client satisfaction</span>
+          <strong>3×</strong>
+          <span>Average deployment speed improvement</span>
         </div>
         <div class="stat">
-          <strong>15 min</strong>
-          <span>Median incident response time</span>
+          <strong>24/7</strong>
+          <span>Monitoring & alerting options</span>
         </div>
       </div>
     </section>
@@ -849,49 +848,49 @@
     <!-- PROJECTS -->
     <section id="projects">
       <div class="container">
-        <h2 class="section-title">Recent projects</h2>
+        <h2 class="section-title">Sample CloudNexis projects</h2>
         <p class="section-subtitle">
-          A snapshot of how we’ve helped teams modernize their platforms,
-          unlock faster delivery, and improve reliability.
+          A glimpse into how we help teams move from “manual and risky”
+          to “automated, monitored and documented”.
         </p>
 
         <div class="projects-grid">
           <article class="card project-card">
-            <span class="project-tag">Fintech · Azure</span>
+            <span class="project-tag">Banking · Azure</span>
             <img
               src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=900&q=80"
-              alt="Fintech dashboard design"
+              alt="Banking dashboard"
             />
-            <h3>Real-time payment analytics platform</h3>
+            <h3>Secure internet banking platform</h3>
             <p>
-              Re-architected a legacy reporting stack into an event-driven Azure solution
-              with CI/CD and SRE best practices.
+              Hardened IIS & XAMPP workloads on Azure VMs, added SSL, backups, and
+              integrated vulnerability scanning with clear remediation steps.
             </p>
           </article>
 
           <article class="card project-card">
-            <span class="project-tag">Healthcare · AWS</span>
+            <span class="project-tag">SaaS · CI/CD</span>
             <img
               src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=900&q=80"
-              alt="Healthcare technology"
+              alt="DevOps automation"
             />
-            <h3>Secure patient data portal</h3>
+            <h3>End-to-end GitHub Actions pipeline</h3>
             <p>
-              Built a HIPAA-conscious portal with automated deployments, observability
-              stack, and strong identity controls.
+              Built pipelines for build, test, security checks and deployment to Azure Web Apps
+              with approvals and environment-based configuration.
             </p>
           </article>
 
           <article class="card project-card">
-            <span class="project-tag">Retail · Multi-cloud</span>
+            <span class="project-tag">Monitoring · Hybrid</span>
             <img
               src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=900&q=80"
-              alt="Retail analytics"
+              alt="Monitoring dashboards"
             />
-            <h3>Global e-commerce observability</h3>
+            <h3>Unified observability for VMs & APIs</h3>
             <p>
-              Implemented centralized logging, metrics, and alerts across microservices
-              running on Kubernetes in multiple regions.
+              Combined Azure Monitor, Prometheus, Grafana and Site24x7 into a single
+              view with daily health check reports for leadership.
             </p>
           </article>
         </div>
@@ -901,17 +900,18 @@
     <!-- TESTIMONIALS -->
     <section class="testimonials">
       <div class="container">
-        <h2 class="section-title">What our clients say</h2>
+        <h2 class="section-title">What teams love about CloudNexis</h2>
         <p class="section-subtitle">
-          We aim to feel like an extension of your internal team — focused on clear
-          communication, strong documentation, and predictable delivery.
+          Clients tell us they appreciate the combination of simple explanations,
+          patient guidance, and reliable delivery.
         </p>
 
         <div class="testimonials-grid">
           <article class="testimonial">
             <p>
-              “CloudNova helped us migrate complex workloads to Azure with almost zero downtime.
-              Their DevOps and monitoring setup has changed how we ship features.”
+              “CloudNexis helped us understand our own Azure environment better
+              than any previous partner. Their runbooks, diagrams and monitoring setup
+              made everything feel under control.”
             </p>
             <div class="testimonial-footer">
               <div class="avatar">
@@ -921,16 +921,17 @@
                 />
               </div>
               <div>
-                <strong>Priya Sharma</strong>
-                <span>VP Engineering, Fintech Startup</span>
+                <strong>Rahul Mehta</strong>
+                <span>Head of Infrastructure, NBFC</span>
               </div>
             </div>
           </article>
 
           <article class="testimonial">
             <p>
-              “Their incident response and SRE guidance helped us reduce production outages
-              dramatically. The team is proactive, humble, and highly skilled.”
+              “They didn’t just build pipelines — they taught our team
+              how Git, branches, and CI/CD actually work. Now deployments are
+              boring and safe, which is exactly what we wanted.”
             </p>
             <div class="testimonial-footer">
               <div class="avatar">
@@ -940,16 +941,17 @@
                 />
               </div>
               <div>
-                <strong>Daniel Lee</strong>
-                <span>CTO, Global Retail Brand</span>
+                <strong>Ananya Iyer</strong>
+                <span>Engineering Manager, SaaS Startup</span>
               </div>
             </div>
           </article>
 
           <article class="testimonial">
             <p>
-              “From CI/CD to observability, CloudNova gave us a modern platform
-              while keeping compliance and security at the center of every decision.”
+              “CloudNexis gave us a clear monitoring checklist and daily
+              reporting. Our leadership finally has visibility into servers, storage
+              and application health.”
             </p>
             <div class="testimonial-footer">
               <div class="avatar">
@@ -959,8 +961,8 @@
                 />
               </div>
               <div>
-                <strong>Dr. Aakash Menon</strong>
-                <span>Founder, HealthTech SaaS</span>
+                <strong>Sarah Thomas</strong>
+                <span>Product Owner, Enterprise Portal</span>
               </div>
             </div>
           </article>
@@ -972,47 +974,47 @@
     <section id="contact">
       <div class="container contact-grid">
         <div class="contact-card">
-          <h2 class="section-title">Let’s build your next platform.</h2>
+          <h2 class="section-title">Let’s talk about your cloud.</h2>
           <p class="text-muted" style="margin-bottom: 1.4rem;">
-            Share a bit about your current stack, challenges, and timelines. Our team
-            will respond within one business day with next steps.
+            Share where you are today — on-prem, AWS, Azure, or mixed — and what you
+            want to improve. CloudNexis will respond with clear next steps.
           </p>
 
           <form>
             <div>
               <label for="name">Full name</label>
-              <input id="name" type="text" placeholder="Safee Khan" />
+              <input id="name" type="text" placeholder="Your name" />
             </div>
             <div>
               <label for="email">Work email</label>
               <input id="email" type="email" placeholder="you@company.com" />
             </div>
             <div>
-              <label for="message">Project details</label>
-              <textarea id="message" placeholder="Tell us about your goals, stack, and timelines."></textarea>
+              <label for="message">Current challenges</label>
+              <textarea id="message" placeholder="Tell us about uptime, deployments, security, or anything else you're worried about."></textarea>
             </div>
             <button type="button" class="btn-primary">
-              Submit inquiry (demo)
+              Submit inquiry (demo only)
             </button>
           </form>
         </div>
 
         <aside class="contact-aside">
-          <h3>Prefer email or a quick call?</h3>
+          <h3>CloudNexis contact</h3>
           <p>
-            We’re flexible on how you want to collaborate — from dedicated Slack
-            channels to weekly check-ins with engineering leadership.
+            We’re a remote-first team based in India, supporting clients across
+            time zones with async updates and scheduled reviews.
           </p>
 
           <ul class="contact-list">
-            <li><span>Email:</span> hello@cloudnova.it</li>
-            <li><span>Phone:</span> +91-98765-43210</li>
-            <li><span>Offices:</span> Pune · Bengaluru · Remote-first</li>
+            <li><span>Email:</span> hello@cloudnexis.in</li>
+            <li><span>Website:</span> www.cloudnexis.in (planned)</li>
+            <li><span>Focus:</span> Azure, DevOps, Monitoring & Security</li>
           </ul>
 
           <p style="margin-top: 1rem;">
-            Hiring managers and founders are welcome to reach out directly for
-            architecture reviews, platform audits, or long-term partnerships.
+            Want a quick architecture or pipeline review? Send us your current
+            diagram or repo link and we’ll suggest practical improvements.
           </p>
         </aside>
       </div>
@@ -1022,7 +1024,7 @@
   <!-- FOOTER -->
   <footer>
     <div class="container footer-flex">
-      <div>© <span id="year"></span> CloudNova IT Solutions. All rights reserved.</div>
+      <div>© <span id="year"></span> CloudNexis. All rights reserved.</div>
       <div class="footer-links">
         <a href="#home">Top</a>
         <a href="#services">Services</a>
