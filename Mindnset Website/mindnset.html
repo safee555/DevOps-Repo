@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mindnest - Cloud Training Institute</title>
+  <link rel="icon" type="image/png" href="Preview.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #000;
+      color: #d4f1ff;
+      overflow-x: hidden;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 2rem;
+      background-color: #0a0a0a;
+      box-shadow: 0 5px 15px rgba(0, 200, 255, 0.4);
+      border-bottom: 4px solid rgba(0, 200, 255, 0.4);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo img {
+      width: 90px;
+      height: auto;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    nav a {
+      margin: 0 0.7rem;
+      text-decoration: none;
+      color: #d4f1ff;
+      font-weight: 600;
+      padding: 0.4rem 0.8rem;
+      border: 1px solid #00c8ff;
+      border-radius: 20px;
+      transition: all 0.3s;
+      background: #001f2f;
+      box-shadow: 0 0 10px rgba(0, 200, 255, 0.6);
+    }
+
+    nav a:hover {
+      background: #00c8ff;
+      color: #000;
+    }
+
+    .auth-buttons {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .capsule-btn {
+      padding: 0.5rem 1rem;
+      border: 1px solid #00c8ff;
+      border-radius: 25px;
+      background: transparent;
+      color: #00c8ff;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+
+    .capsule-btn:hover {
+      background: #00c8ff;
+      color: black;
+      box-shadow: 0 0 15px #00c8ff;
+    }
+
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .video-container video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: -2;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .video-container video.active {
+      opacity: 1;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      color: #00c8ff;
+      z-index: 1;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #d4f1ff;
+      max-width: 800px;
+      margin: 1rem auto;
+      z-index: 1;
+    }
+
+    .section {
+      padding: 3rem 2rem;
+      background-color: rgba(20, 20, 30, 0.95);
+      margin: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 200, 255, 0.2);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .section:hover {
+      box-shadow: 0 0 20px #00c8ff;
+    }
+
+    .section h2 {
+      color: #00c8ff;
+      margin-bottom: 1rem;
+    }
+
+    .section ul li,
+    .section p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .courses {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .card {
+      background: #111;
+      border-radius: 10px;
+      overflow: hidden;
+      width: 300px;
+      transition: transform 0.5s ease-in-out;
+      box-shadow: 0 0 10px rgba(0, 200, 255, 0.1);
+      cursor: pointer;
+    }
+
+    .card:hover {
+      box-shadow: 0 0 20px #00c8ff;
+      transform: scale(1.05);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: contain;
+      background: #fff;
+    }
+
+    .card-content {
+      padding: 1rem;
+    }
+
+    .card-content h3 {
+      color: #00c8ff;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-content p {
+      font-size: 0.95rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #000;
+      font-size: 0.8rem;
+      color: #d4f1ff;
+    }
+
+    @media (max-width: 768px) {
+      header, nav, .auth-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+
+      .hero p {
+        font-size: 0.95rem;
+        padding: 0 1rem;
+      }
+
+      .logo img {
+        width: 80px;
+      }
+
+      nav a {
+        margin: 0.5rem 0;
+        font-size: 0.95rem;
+      }
+
+      .capsule-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+      }
+
+      .courses {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <img src="Preview.png" alt="Mindnest Symbol">
+    </div>
+    <nav>
+      <a href="#top" onclick="scrollToTop()">Home</a>
+      <a href="registration.html">Registration</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="auth-buttons">
+      <a href="signup.html" class="capsule-btn">Sign Up</a>
+      <a href="login.html" class="capsule-btn">Login</a>
+    </div>
+  </header>
+
+  <section class="hero" id="top">
+    <div class="video-container">
+      <video id="video1" class="active" autoplay muted playsinline>
+        <source src="Videos/Boy.mp4" type="video/mp4">
+      </video>
+      <video id="video2" muted playsinline>
+        <source src="C:\Users\syed.safee\Downloads\CloudNexis\Video\AI-Cheap.mov" type="video/mp4">
+      </video>
+    </div>
+    <div>
+      <h1>Welcome to MindNest</h1>
+      <p>Your trusted launchpad for mastering AWS, Azure, GCP, and DevOps.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Our Courses</h2>
+    <div class="courses">
+      <div class="card">
+        <img src="Logos/Azure.jpg" alt="Azure Course">
+        <div class="card-content">
+          <h3>Microsoft Azure</h3>
+          <p>Azure is a comprehensive cloud computing platform created by Microsoft offering IaaS, PaaS, and SaaS solutions. It provides services for analytics, virtual computing, storage, networking, and more. It's used by enterprises to deploy applications globally with integrated tools and security services.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="Logos/aws.jpg" alt="AWS Course">
+        <div class="card-content">
+          <h3>Amazon Web Services</h3>
+          <p>AWS is Amazon's secure cloud services platform, offering compute power, database storage, content delivery, and more. It supports workloads from startups to enterprises, known for high scalability, flexibility, and reliability. Services include EC2, S3, RDS, Lambda, and more.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="Logos/DevOps.jpg" alt="DevOps Course">
+        <div class="card-content">
+          <h3>DevOps</h3>
+          <p>DevOps integrates software development and IT operations to shorten development life cycles and deliver high-quality software. It emphasizes collaboration, automation, continuous integration, delivery, and monitoring. Popular tools include Jenkins, Docker, Git, and Kubernetes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="who">
+    <h2>Why Choose MindNest?</h2>
+    <p>We provide hands-on, real-world training on the latest cloud technologies. Whether you're starting out or scaling up, our tailored courses ensure you're ready for success in the industry.</p>
+  </section>
+
+  <section class="section" id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: syedsafee111@gmail.com</p>
+    <p>Phone: 9922275183</p>
+  </section>
+
+  <footer>
+    &copy; 2025 MindNest. All rights reserved.
+  </footer>
+
+  <script>
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    const videos = [
+      document.getElementById("video1"),
+      document.getElementById("video2")
+    ];
+
+    let current = 0;
+
+    function playNextVideo() {
+      videos[current].classList.remove("active");
+      current = (current + 1) % videos.length;
+      videos[current].classList.add("active");
+      videos[current].currentTime = 0;
+      videos[current].play();
+    }
+
+    videos.forEach((vid, i) => {
+      vid.onended = playNextVideo;
+    });
+  </script>
+</body>
+
+</html>
