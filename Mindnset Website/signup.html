@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration - MindNest</title>
+  <link rel="icon" type="image/png" href="Preview.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #000;
+      color: #d4f1ff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .logo img {
+      height: 60px;
+    }
+
+    .form-container {
+      background-color: #111;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 200, 255, 0.5);
+      width: 100%;
+      max-width: 500px;
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    h2 {
+      color: #00c8ff;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    input, select, textarea {
+      padding: 0.8rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 0.8rem;
+      background: transparent;
+      color: #00c8ff;
+      font-weight: bold;
+      border: 2px solid #00c8ff;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 8px #00c8ff, inset 0 0 4px #00c8ff;
+    }
+
+    button:hover {
+      background-color: rgba(0, 200, 255, 0.1);
+      box-shadow: 0 0 15px #00c8ff, inset 0 0 10px #00c8ff;
+    }
+
+    .success-message {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #00c8ff;
+      text-align: center;
+      animation: fadeInScale 1s ease forwards;
+    }
+
+    .success-message.show {
+      display: flex;
+    }
+
+    .success-message svg {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 1rem;
+      stroke: #00c8ff;
+    }
+
+    footer {
+      margin-top: 2rem;
+      text-align: center;
+      color: #aaa;
+      font-size: 0.8rem;
+    }
+
+    @keyframes fadeInScale {
+      from {
+        opacity: 0;
+        transform: scale(0.5);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="logo">
+    <img src="Preview.png" alt="MindNest Logo">
+  </div>
+
+  <div class="form-container" id="formContainer">
+    <h2>Register Now</h2>
+    <form id="registrationForm">
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="tel" name="phone" placeholder="Phone Number" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+      <select name="course" required>
+        <option value="">Select a Course</option>
+        <option value="azure">Microsoft Azure</option>
+        <option value="aws">Amazon Web Services</option>
+        <option value="devops">DevOps</option>
+      </select>
+      <textarea name="message" rows="4" placeholder="Your Message (Optional)"></textarea>
+      <button type="submit" id="submitBtn">Submit</button>
+    </form>
+  </div>
+
+  <div class="success-message" id="successMessage">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10" stroke="currentColor" />
+      <path d="M9 12l2 2 4-4" stroke="currentColor" />
+    </svg>
+    <h2>Registration Successful!</h2>
+  </div>
+
+  <footer>
+    &copy; 2025 MindNest. All rights reserved.
+  </footer>
+
+  <script>
+    const form = document.getElementById("registrationForm");
+    const formContainer = document.getElementById("formContainer");
+    const successMessage = document.getElementById("successMessage");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+
+      if (password !== confirmPassword) {
+        alert("Passwords do not match. Please try again.");
+        return;
+      }
+
+      formContainer.style.opacity = 0;
+      formContainer.style.transform = "scale(0.9)";
+      setTimeout(() => {
+        formContainer.style.display = "none";
+        successMessage.classList.add("show");
+      }, 1000);
+    });
+  </script>
+</body>
+
+</html>
